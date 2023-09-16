@@ -4,6 +4,101 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
+    public void PrevMinMinVolume() {
+        Radio radio = new Radio();
+
+        radio.setVolume(1);
+        radio.prevVolume2();
+
+        int expected = 0;
+        int actual = radio.getVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void NextMaxMaxVolume() {
+        Radio radio = new Radio();
+
+        radio.setVolume(99);
+        radio.nextVolume2();
+
+        int expected = 100;
+        int actual = radio.getVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void PrevMinVolume2() {
+        Radio radio = new Radio();
+
+        radio.setVolume(0);
+        radio.prevVolume2();
+
+        int expected = 0;
+        int actual = radio.getVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void NextMaxVolume2() {
+        Radio radio = new Radio();
+
+        radio.setVolume(100);
+        radio.nextVolume2();
+
+        int expected = 100;
+        int actual = radio.getVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void NumberStation() {
+        Radio radio = new Radio(99);
+
+        radio.setStation(99);
+
+        int expected = 99;
+        int actual = radio.getStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void NextNumberStation() {
+        Radio radio = new Radio(99);
+
+        radio.setStation(99);
+        radio.nextStation();
+
+        int expected = 0;
+        int actual = radio.getStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void PrevNumberStation() {
+        Radio radio = new Radio(99);
+
+        radio.setStation(0);
+        radio.prevStation();
+
+        int expected = 99;
+        int actual = radio.getStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
     public void MaxStation() {
         Radio radio = new Radio();
 
